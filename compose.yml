@@ -1,7 +1,7 @@
 namespace: zcash
 containers:
   # testnet:
-  #   image: bwstitt/zcash:latest
+  #   image: baseboxorg/zcash:latest
   #   # ports:
   #   # TODO: what are the right ports?
   #   volumes:
@@ -9,7 +9,7 @@ containers:
   #    - "data/zcash-params:/home/zcash/.zcash-params"
   #    - "testnet.conf:/config/zcash.conf:ro"
   mainnet:
-    image: bwstitt/zcash:latest
+    image: baseboxorg/zcash:latest
     ports:
      - "8233:8233/tcp"
     volumes:
