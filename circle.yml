@@ -1,10 +1,10 @@
 machine:
   post:
     - dpkg -l | grep docker
+    - apt-get remove --purge docker-agent
     - curl -sSL https://get.docker.com/ | sh
-    
-
-    
+    - docker version
+   
   services:
     - docker
 
