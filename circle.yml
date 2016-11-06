@@ -1,7 +1,9 @@
 machine:
   post:
-    - curl -fsSL https://get.docker.com/ | sh
-    - container=yes docker daemon: { background: true }
+    - dpkg -l | grep docker
+    - apt-get remove --purge lxc-docker lxc-docker-1.9.1
+    - curl -sSL https://get.docker.com/ | sh
+    
 
   services:
     - docker
