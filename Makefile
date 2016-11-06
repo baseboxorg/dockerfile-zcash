@@ -3,6 +3,7 @@ default: build
 # Build Docker image
 build: docker_build output
 
+# build_ci: docker_build 
 # Build and push Docker image
 release: docker_build docker_push output
 
