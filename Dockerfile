@@ -53,8 +53,8 @@ LABEL org.label-schema.build-date=$BUILD_DATE \
 CMD ["sh", "/start-zcashd.sh"]
 
 #HEALTHCHECK CMD curl --fail http://localhost:3000/ || exit 1
-HEALTHCHECK --interval=5m --timeout=3s CMD zcash-cli getinfo || exit 1
-#
+HEALTHCHECK --interval=5m --timeout=3s \
+       CMD zcash-cli getinfo || exit 1
 
 
 EXPOSE 8233
