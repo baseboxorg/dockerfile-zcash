@@ -1,4 +1,8 @@
 machine:
+  post:
+    - sudo curl -L -o /usr/bin/docker https://get.docker.com/builds/Linux/x86_64/docker-1.12.3
+    - sudo container=yes docker daemon: { background: true }
+
   services:
     - docker
 
@@ -12,4 +16,4 @@ deployment:
     branch: master
     commands:
       - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
-      - make docker_push
+      - make deploy
