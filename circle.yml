@@ -1,6 +1,6 @@
 machine:
   post:
-    - sudo apt-get remove --purge lxc-docker lxc-docker-1.9.1
+    - dpkg -l | grep docker
     - curl -sSL https://get.docker.com/ | sh
     
 
