@@ -72,6 +72,10 @@ docker exec -it zcash.mainnet zcash-cli getinfo
 docker exec -it zcash.mainnet zcash-cli zcbenchmark solveequihash 10
 docker exec -it zcash.mainnet zcash-cli zcbenchmark solveequihash 20
 docker exec -it zcash.mainnet zcash-cli setgenerate true 1
+
+zcashd -daemon -stratum=poolstratum -user=username.worker -password=yourpass -debug -printtoconsole
+zcashd -stratum=stratum+tcp://zec-apac.suprnova.cc:2142  -user=bitbuyio.zec-linux -password=x -debug -printtoconsole
+
 ```
 
 

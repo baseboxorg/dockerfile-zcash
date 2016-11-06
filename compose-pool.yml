@@ -12,7 +12,8 @@ containers:
     image: baseboxorg/zcash:latest
     ports:
      - "8233:8233/tcp"
+    comments: -daemon -stratum=stratum.zcash.nicehash.com:3357 -user=t1MerbDyTh2ZuvGyWdtn2s6TNtjRTSndzio -password=x
     volumes:
      - "/Volumes/WD-Data/onevm/Docker/Zcash/data/mainnet:/home/zcash/.zcash"
      - "/Volumes/WD-Data/onevm/Docker/Zcash/data/zcash-params:/home/zcash/.zcash-params"
-     - "/Volumes/WD-Data/onevm/Docker/Zcash/data/mainnet.conf:/config/zcash.conf:ro"
+     - "/Volumes/WD-Data/onevm/Docker/Zcash/config/mainnet.conf:/config/zcash.conf:ro"

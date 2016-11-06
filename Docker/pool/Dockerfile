@@ -22,18 +22,15 @@ RUN wget -qO - https://apt.z.cash/zcash.asc | apt-key add - \
  && echo "deb https://apt.z.cash/ jessie main" >/etc/apt/sources.list.d/zcash.list \
  && docker-apt-install zcash
 
-#wget https://s3-us-west-1.amazonaws.com/zcash.dl.mercerweiss.com/zcash-1.0.1-amd64.deb
-#sudo dpkg -i zcash-1.0.1-amd64.deb
-#apt 
 # setup data volumes
 RUN mkdir -p ~/.zcash ~/.zcash-params
 VOLUME /home/zcash/.zcash /home/zcash/.zcash-params
 
-ADD ./start-zcashd.sh /start-zcashd.sh
+#ADD ./start-zcash-pool.sh /start-zcash-pool.sh
 USER zcash
-CMD ["sh", "/start-zcashd.sh"]
+#CMD ["sh", "/start-zcashd.sh"]
 
-HEALTHCHECK --interval=5m --timeout=3s \
-    CMD zcash-cli getinfo || exit 1
+#HEALTHCHECK --interval=5m --timeout=3s \
+#    CMD zcash-cli getinfo || exit 1
 
 EXPOSE 8233
