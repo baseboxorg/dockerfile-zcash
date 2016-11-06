@@ -2,8 +2,9 @@ machine:
   post:
     - dpkg -l | grep docker
     - sudo apt-get remove --purge docker-engine
-    - curl -sSL https://get.docker.com/ | sh
-    - docker version
+    - echo "deb https://apt.dockerproject.org/repo ubuntu-trusty main" | sudo tee /etc/apt/sources.list.d/docker.list
+    - sudo apt-get update
+    - dpkg -l | grep docker
    
   services:
     - docker
