@@ -6,6 +6,8 @@ build: docker_build output
 # Build and push Docker image
 release: docker_build docker_push output
 
+deploy: docker_push output
+
 # Image and binary can be overidden with env vars.
 DOCKER_IMAGE ?= baseboxorg/zcash
 
