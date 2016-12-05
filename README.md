@@ -76,6 +76,20 @@ docker exec -it zcash.mainnet zcash-cli setgenerate true 1
 zcashd -daemon -stratum=poolstratum -user=username.worker -password=yourpass -debug -printtoconsole
 zcashd -stratum=stratum+tcp://zec-apac.suprnova.cc:2142  -user=bitbuyio.zec-linux -password=x -debug -printtoconsole
 
+~/zcash/./src/zcashd -daemon (start wallet)
+~/zcash/./src/zcash-cli getinfo (check wallet info, blockchain etc)
+~/zcash/./src/zcash-cli keypoolrefill 10000 (create 500 addresses for mining default:100)
+time ~/zcash/src/zcash-cli zcbenchmark solveequihash 10 (10 benchmark runs)
+~/zcash/./src/zcash-cli listtransactions (list mined coins)
+~/zcash/./src/zcash-cli stop (stop miner)
+~/zcash/./src/zcash-cli zcrawkeygen - to generate anon wallet (transparent coins to anon coins)
+~/zcash/./src/zcash-cli z_listaddresses (list anon addresses)
+~/zcash/./src/zcash-cli listunspent (list unspent)
+~/zcash/./src/zcash-cli zcrawkeygen (create anon addie)
+~/zcash/./src/zcash-cli zcrawjoinsplit "$(~/zcash/./src/zcash-cli createrawtransaction '[{"txid":"TransparentAddieofBlock","vout":0}]' '{}')" '{}' "{"AnonAddressYouWantToSendTo":1}" 1 0
+~/zcash/./src/zcash-cli signrawtransaction "$RAWTXN_FROM_ZCRAWJOINSPLIT"
+~/zcash/./src/zcash-cli sendrawtransaction "$RAWTXN_FROM_SIGNRAWTRANSACTION"
+
 ```
 
 
